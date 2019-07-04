@@ -1,0 +1,15 @@
+{% extends 'ams/base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="jumbotron">
+  <h1 class="display-4">Mark the Attendace for subjectname </h1>
+   <hr class="my-4">
+   {% for student in students %}
+    <a href="#"><p>{{ student.rollNo }} {{ student.user.first_name }}</p></a>
+   {% endfor %}
+ </div>
+</div>
+
+{% endblock %}

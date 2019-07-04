@@ -1,0 +1,20 @@
+{% extends 'ams/base.html' %}
+
+{% block content %}
+
+<div class="container">
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Attendance Management System {{ user.username }}</h1>
+   <p class="lead">Managing attendance became simpler</p>
+   <p class="lead">Be student, be faculty. Simplied for everyone</p>
+   <hr class="my-4">
+   {% if perms.ams.is_faculty %}
+    <h5 class="display-4">Mark Attendace for</h5>
+     {% for sb in sbf %}
+       <a href="{% url 'markattendance' pk=sb.subjectByFacultyId %}"><label >{{ sb.subjectId }}</label></a>
+     {% endfor %}
+    {% endif %}
+ </div>
+</div>
+
+{% endblock %}
